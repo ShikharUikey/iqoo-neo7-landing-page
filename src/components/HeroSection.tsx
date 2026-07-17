@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import ParticleField from './ui/ParticleField';
-import MaskedText from './ui/MaskedText';
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -37,17 +36,29 @@ export default function HeroSection() {
         </p>
 
         {/* Headline */}
-        <div className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-8">
-          <MaskedText text="Power Beyond" delay={0.2} />
-          <MaskedText text="Limits." delay={0.4} />
-        </div>
+        <h1
+          className={`text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white transition-all duration-1000 delay-200 ${
+            visible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
+          Power Beyond
+          <br />
+          Limits.
+        </h1>
 
         {/* Subtitle */}
-        <MaskedText 
-          text="Flagship performance engineered for gamers, creators, and everyday power users."
-          delay={0.6}
-          className="text-lg md:text-xl text-white/50 max-w-xl mx-auto leading-relaxed"
-        />
+        <p
+          className={`text-lg md:text-xl text-white/50 max-w-xl mx-auto mt-8 leading-relaxed transition-all duration-1000 delay-500 ${
+            visible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-6'
+          }`}
+        >
+          Flagship performance engineered for gamers, creators, and everyday
+          power users.
+        </p>
 
         {/* CTA Button */}
         <div

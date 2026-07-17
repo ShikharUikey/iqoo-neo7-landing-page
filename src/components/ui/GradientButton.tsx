@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Magnetic from './Magnetic';
 
 interface GradientButtonProps {
   children: React.ReactNode;
@@ -48,19 +47,15 @@ export default function GradientButton({
 
   if (href) {
     return (
-      <Magnetic>
-        <a href={href} className={combinedClasses} onClick={onClick}>
-          {children}
-        </a>
-      </Magnetic>
+      <a href={href} className={combinedClasses} onClick={onClick}>
+        {children}
+      </a>
     );
   }
 
   return (
-    <Magnetic>
-      <button type="button" className={combinedClasses} onClick={onClick}>
-        {children}
-      </button>
-    </Magnetic>
+    <button type="button" className={combinedClasses} onClick={onClick}>
+      {children}
+    </button>
   );
 }

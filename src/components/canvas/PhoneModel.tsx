@@ -18,8 +18,11 @@ export default function PhoneModel({ scrollProgressRef, phoneColor = 'black' }: 
 
   const getColorHex = (colorId: string) => {
     switch (colorId) {
+      case 'titanium': return '#E5E7EB';
       case 'orange': return '#FF6A00';
       case 'blue': return '#2E7DFF';
+      case 'emerald': return '#10B981';
+      case 'purple': return '#6D28D9';
       default: return '#111111'; // black
     }
   };

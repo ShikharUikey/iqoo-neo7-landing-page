@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState } from 'react';
 
-type ColorTheme = 'orange' | 'blue' | 'black';
+type ColorTheme = 'orange' | 'blue' | 'black' | 'titanium' | 'emerald' | 'purple';
 
 interface ThemeContextType {
   color: ColorTheme;

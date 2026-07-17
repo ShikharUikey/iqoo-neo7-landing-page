@@ -6,8 +6,11 @@ import { motion } from 'framer-motion';
 
 const colors = [
   { id: 'black', hex: '#111111', name: 'Interstellar Black' },
+  { id: 'titanium', hex: '#E5E7EB', name: 'Titanium Frost' },
   { id: 'orange', hex: '#FF6A00', name: 'Maverick Orange' },
-  { id: 'blue', hex: '#2E7DFF', name: 'Fearless Blue' }
+  { id: 'blue', hex: '#2E7DFF', name: 'Fearless Blue' },
+  { id: 'emerald', hex: '#10B981', name: 'Emerald Green' },
+  { id: 'purple', hex: '#6D28D9', name: 'Cosmic Purple' }
 ] as const;
 
 export default function ColorSwitcher() {
