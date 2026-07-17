@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import SmoothScrollProvider from '@/providers/SmoothScrollProvider';
+import CustomCursor from '@/components/ui/CustomCursor';
+import ColorSwitcher from '@/components/ui/ColorSwitcher';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -63,9 +66,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body className="bg-[#050505] text-white antialiased font-sans">
-        <SmoothScrollProvider>
-          <div className="min-h-screen">{children}</div>
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            <CustomCursor />
+            <ColorSwitcher />
+            <div className="min-h-screen">{children}</div>
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

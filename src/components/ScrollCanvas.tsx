@@ -5,12 +5,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollOverlays from './ScrollOverlays';
 import Scene from './canvas/Scene';
+import { useTheme } from '@/providers/ThemeProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollProgressRef = useRef<number>(0);
+  const { color } = useTheme();
   
   // We can add a simple mount state to ensure it only renders on client
   const [mounted, setMounted] = useState(false);
@@ -48,7 +50,7 @@ export default function ScrollCanvas() {
       id="scroll-experience"
     >
       <div className="sticky top-0 h-screen w-screen overflow-hidden bg-[#050505]">
-        {mounted && <Scene scrollProgressRef={scrollProgressRef} />}
+        {mounted && <Scene scrollProgressRef={scrollProgressRef} phoneColor={color} />}
       </div>
       <ScrollOverlays />
     </div>

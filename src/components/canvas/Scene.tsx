@@ -7,9 +7,10 @@ import { Suspense } from 'react';
 
 interface SceneProps {
   scrollProgressRef: React.MutableRefObject<number>;
+  phoneColor: string;
 }
 
-export default function Scene({ scrollProgressRef }: SceneProps) {
+export default function Scene({ scrollProgressRef, phoneColor }: SceneProps) {
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 45 }}
@@ -39,7 +40,7 @@ export default function Scene({ scrollProgressRef }: SceneProps) {
         />
 
         <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-          <PhoneModel scrollProgressRef={scrollProgressRef} />
+          <PhoneModel scrollProgressRef={scrollProgressRef} phoneColor={phoneColor} />
         </Float>
         
         {/* Preload all assets for performance */}

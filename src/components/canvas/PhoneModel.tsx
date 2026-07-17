@@ -7,13 +7,22 @@ import * as THREE from 'three';
 
 interface PhoneModelProps {
   scrollProgressRef: React.MutableRefObject<number>;
+  phoneColor?: string;
 }
 
-export default function PhoneModel({ scrollProgressRef }: PhoneModelProps) {
+export default function PhoneModel({ scrollProgressRef, phoneColor = 'black' }: PhoneModelProps) {
   const group = useRef<THREE.Group>(null);
   
   // We use one of the frames as a static screen texture for the placeholder
   const screenTexture = useTexture('/frames/ezgif-frame-080.jpg');
+
+  const getColorHex = (colorId: string) => {
+    switch (colorId) {
+      case 'orange': return '#FF6A00';
+      case 'blue': return '#2E7DFF';
+      default: return '#111111'; // black
+    }
+  };
 
   useFrame((state) => {
     if (!group.current) return;
@@ -23,7 +32,7 @@ export default function PhoneModel({ scrollProgressRef }: PhoneModelProps) {
     // Smoothly interpolate current rotation/position to target based on progress
     let targetRotationY = 0;
     let targetRotationX = 0;
-    let targetRotationZ = 0;
+    const targetRotationZ = 0;
     let targetPositionY = 0;
     let targetPositionZ = 0;
     
@@ -78,10 +87,10 @@ export default function PhoneModel({ scrollProgressRef }: PhoneModelProps) {
 
   return (
     <group ref={group}>
-      {/* Main Body (Interstellar Black) */}
+      {/* Main Body */}
       <RoundedBox args={[3.2, 6.9, 0.35]} radius={0.3} smoothness={8}>
         <meshStandardMaterial 
-          color="#111111" 
+          color={getColorHex(phoneColor)} 
           metalness={0.9} 
           roughness={0.1}
           envMapIntensity={2} 
