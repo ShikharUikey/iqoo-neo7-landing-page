@@ -7,13 +7,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'bg-primary': '#050505',
-        'bg-secondary': '#0A0A0C',
-        'text-primary': '#FFFFFF',
-        'text-secondary': 'rgba(255,255,255,0.65)',
-        'accent-orange': '#FF6A00',
-        'accent-gold': '#FFD000',
-        'accent-blue': '#2E7DFF',
+        'bg-primary': '#0B1120',
+        'bg-secondary': '#112250',
+        'text-primary': '#F5F0E9',
+        'text-secondary': '#D8CBC2',
+        'accent-orange': '#E0C58F',
+        'accent-gold': '#3C507D',
+        'accent-blue': '#4F8F75',
       },
       fontFamily: {
         sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
@@ -49,8 +49,8 @@ const config: Config = {
           '50%': { transform: 'translateY(-20px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 106, 0, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(255, 106, 0, 0.6)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(224, 197, 143, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(224, 197, 143, 0.6)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
@@ -76,8 +76,8 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-orange': 'linear-gradient(135deg, #FF6A00, #FFD000)',
-        'gradient-gold': 'linear-gradient(135deg, #FFD000, #FF6A00)',
+        'gradient-orange': 'linear-gradient(135deg, #E0C58F, #3C507D)',
+        'gradient-gold': 'linear-gradient(135deg, #3C507D, #E0C58F)',
       },
     },
   },

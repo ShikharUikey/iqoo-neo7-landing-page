@@ -6,17 +6,17 @@
 
 /* ─── CSS Custom Properties ──────────────────────────────── */
 :root {
-  --bg-primary: #050505;
-  --bg-secondary: #0A0A0C;
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.65);
-  --accent-orange: #FF6A00;
-  --accent-gold: #FFD000;
-  --accent-blue: #2E7DFF;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-bg-strong: rgba(255, 255, 255, 0.1);
-  --glass-border-strong: rgba(255, 255, 255, 0.15);
+  --bg-primary: #0B1120;
+  --bg-secondary: #112250;
+  --text-primary: #F5F0E9;
+  --text-secondary: #D8CBC2;
+  --accent-orange: #E0C58F;
+  --accent-gold: #3C507D;
+  --accent-blue: #4F8F75;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.08);
+  --glass-border-strong: rgba(255, 255, 255, 0.12);
 }
 
 /* ─── Base Styles ────────────────────────────────────────── */
@@ -59,12 +59,12 @@ body {
 
 /* ─── Selection ──────────────────────────────────────────── */
 ::selection {
-  background-color: rgba(255, 106, 0, 0.35);
+  background-color: rgba(224, 197, 143, 0.35);
   color: #FFFFFF;
 }
 
 ::-moz-selection {
-  background-color: rgba(255, 106, 0, 0.35);
+  background-color: rgba(224, 197, 143, 0.35);
   color: #FFFFFF;
 }
 
@@ -85,7 +85,7 @@ body {
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #FF6A00, #FFD000);
+    background: linear-gradient(135deg, #E0C58F, #3C507D);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -93,7 +93,7 @@ body {
   }
 
   .gradient-text-blue {
-    background: linear-gradient(135deg, #2E7DFF, #00C2FF);
+    background: linear-gradient(135deg, #3C507D, #4F8F75);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -102,16 +102,16 @@ body {
 
   .glow-orange {
     box-shadow:
-      0 0 20px rgba(255, 106, 0, 0.3),
-      0 0 40px rgba(255, 106, 0, 0.15),
-      0 0 80px rgba(255, 106, 0, 0.05);
+      0 0 20px rgba(224, 197, 143, 0.3),
+      0 0 40px rgba(224, 197, 143, 0.15),
+      0 0 80px rgba(224, 197, 143, 0.05);
   }
 
   .glow-blue {
     box-shadow:
-      0 0 20px rgba(46, 125, 255, 0.3),
-      0 0 40px rgba(46, 125, 255, 0.15),
-      0 0 80px rgba(46, 125, 255, 0.05);
+      0 0 20px rgba(60, 80, 125, 0.3),
+      0 0 40px rgba(60, 80, 125, 0.15),
+      0 0 80px rgba(60, 80, 125, 0.05);
   }
 
   .text-shadow {
