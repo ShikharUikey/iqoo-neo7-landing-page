@@ -67,35 +67,52 @@ export default function ScrollCanvas() {
     });
   };
 
-  // Preload all images
+  // Preload all images progressively
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     let isMounted = true;
     const images: HTMLImageElement[] = [];
+    const CRITICAL_FRAMES = 15; // Number of initial frames to load before revealing site
     let loaded = 0;
+    let criticalLoaded = 0;
 
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
+    const loadFrame = (i: number, isCritical: boolean) => {
       const img = new Image();
       img.src = getFramePath(i);
-      img.onload = () => {
+      
+      const handleLoad = () => {
         if (!isMounted) return;
         loaded++;
         setLoadedCount(loaded);
-        if (loaded === TOTAL_FRAMES) {
-          setIsLoaded(true);
+        
+        if (isCritical) {
+          criticalLoaded++;
+          if (criticalLoaded === CRITICAL_FRAMES) {
+            setIsLoaded(true);
+            // Load remaining frames in background after initial page reveal
+            setTimeout(loadRemaining, 100);
+          }
         }
       };
-      img.onerror = () => {
-        if (!isMounted) return;
-        loaded++;
-        setLoadedCount(loaded);
-        if (loaded === TOTAL_FRAMES) {
-          setIsLoaded(true);
-        }
-      };
+
+      img.onload = handleLoad;
+      img.onerror = handleLoad;
       images[i] = img;
+    };
+
+    // Stage 1: Load critical frames
+    for (let i = 0; i < CRITICAL_FRAMES; i++) {
+      loadFrame(i, true);
     }
+
+    // Stage 2: Load remaining frames in the background
+    const loadRemaining = () => {
+      for (let i = CRITICAL_FRAMES; i < TOTAL_FRAMES; i++) {
+        if (!isMounted) break;
+        loadFrame(i, false);
+      }
+    };
 
     imagesRef.current = images;
 
@@ -153,7 +170,8 @@ export default function ScrollCanvas() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded]);
 
-  const progress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+  // Progress percentage based on critical frames (first 15) to transition loader quickly
+  const progress = Math.min(100, Math.round((loadedCount / 15) * 100));
 
   return (
     <>
