@@ -76,24 +76,26 @@ export default function ScrollOverlays() {
           className="absolute inset-0 flex flex-col items-center justify-center text-center"
           style={{ opacity: 0 }}
         >
-          <h2 className="max-w-4xl text-5xl font-bold tracking-tighter text-white md:text-7xl lg:text-8xl">
-            {phase.headline}
-          </h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/60 md:text-xl">
-            {phase.subtext}
-          </p>
+          <div className="backdrop-blur-md bg-black/30 border border-white/10 p-8 md:p-12 rounded-3xl shadow-[0_24px_50px_rgba(0,0,0,0.5)] max-w-4xl mx-4 flex flex-col items-center justify-center">
+            <h2 className="max-w-3xl text-4xl font-bold tracking-tighter text-white md:text-6xl lg:text-7xl">
+              {phase.headline}
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+              {phase.subtext}
+            </p>
 
-          {/* CTA button on the last overlay */}
-          {index === scrollStory.length - 1 && (
-            <button
-              className="mt-10 pointer-events-auto rounded-full px-8 py-4 text-sm font-semibold tracking-wide text-white uppercase transition-transform hover:scale-105 active:scale-95"
-              style={{
-                background: 'linear-gradient(135deg, #FF6A00, #FFD000)',
-              }}
-            >
-              Experience iQOO Neo 7
-            </button>
-          )}
+            {/* CTA button on the last overlay */}
+            {index === scrollStory.length - 1 && (
+              <button
+                className="mt-8 pointer-events-auto rounded-full px-8 py-3.5 text-xs font-semibold tracking-wide text-white uppercase transition-transform hover:scale-105 active:scale-95"
+                style={{
+                  background: 'linear-gradient(135deg, #FF6A00, #FFD000)',
+                }}
+              >
+                Experience iQOO Neo 7
+              </button>
+            )}
+          </div>
         </div>
       ))}
     </div>
